@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Shinchoku-san",
+  "version": "0.1.0",
+  "description": "進捗どうですか？",
+  "browser_action": {
+    "default_icon": "shinchoku-san128.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "128": "shinchoku-san128.png",
+    "48": "shinchoku-san48.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": ["jquery-2.0.3.min.js", "contentscript.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
